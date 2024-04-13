@@ -4,43 +4,59 @@ import java.util.Random;
 
 public class Main{
     public static <T> void main(String [] args){
-        //for(int i = 0; i < 10; i++){
-            Integer[] ints = vectorGerator();
-            Integer[] ints2 = ints.clone();
-            System.out.println("Teste vetor");
-            System.out.println("Vetor de entrada: " + java.util.Arrays.toString(ints) + "\n");
-            for(int j = 15; j <= 25; j++){
-                System.out.println("\n--------------------\nVetor de tamanho " + ints.length + ", L = " + j);
-                Ordenadores<Integer> intSorter = new Ordenadores<>();
-
-                intSorter.newQuicksortIniciador(ints, 0, ints.length - 1, j);
-
-                //System.out.println("\nVetor de saida: " + java.util.Arrays.toString(ints));
-                System.out.println("\n--------------------\n");
-                ints = ints2.clone();
-            }
-        //}
+        testeMergesort(1000);
     }
 
-    private static Integer[] geradorVetor(){
-        Random random = new Random();
-        int n = random.nextInt(13) + 8;
-
+    private static Integer[] vectorGerator(int n){
         Integer[] vet = new Integer[n];
+        Random random = new Random();
+
         for(int i = 0; i < n; i++){
-            vet[i] = random.nextInt(121);
+            vet[i] = random.nextInt(301);
         }
         return vet;
     }
 
-    private static Integer[] vectorGerator(){
-        Integer[] vet = new Integer[1000];
-        Random random = new Random();
+    public static void testeQuicksortL(int n){
+        Integer[] ints = vectorGerator(n);
+        Integer[] ints2 = ints.clone();
+        Integer[] ints3 = ints.clone();
+        Quicksorter.quicksort(ints.clone(), 0, ints.length-1, 5);
+        int l1 = 15, l2 = 10, l3 = 5;
+        System.out.println("Teste vetor");
+        System.out.println("\n--------------------\nVetor de tamanho " + ints3.length + ", L = " + l3);
 
-        for(int i = 0; i < 1000; i++){
-            vet[i] = random.nextInt(601);
-        }
-        return vet;
+        Quicksorter.quicksortTemporizadoNS(ints3, 0, ints3.length - 1, l3);
+
+        System.out.println("\n--------------------\n");
+        System.out.println("\n--------------------\nVetor de tamanho " + ints2.length + ", L = " + l2);
+
+        Quicksorter.quicksortTemporizadoNS(ints2, 0, ints2.length - 1, l2);
+
+        System.out.println("\n--------------------\n");
+        System.out.println("\n--------------------\nVetor de tamanho " + ints.length + ", L = " + l1);
+
+        Quicksorter.quicksortTemporizadoNS(ints, 0, ints.length - 1, l1);
+
+        System.out.println("\n--------------------\n");
+    }
+
+    public static void testeMergesort(int n){
+        Integer[] ints = vectorGerator(n);
+        Integer[] ints2 = ints.clone();
+        //Mergesorter.newMergesort(ints.clone());
+        //System.out.println("Vetor de entrada: " + java.util.Arrays.toString(ints) + "\n newMergesort");
+        System.out.println("-----------------------------------------");
+        System.out.println("Vetor de tamanho " + ints.length + ", mergesort modificado\n");
+        Mergesorter.newMergesortTemporizadoNS(ints);
+        System.out.println("-----------------------------------------");
+        
+        //System.out.println("Vetor de saida: " + java.util.Arrays.toString(ints) + "\n mergesort");
+        System.out.println("-----------------------------------------");
+        System.out.println("Vetor de tamanho " + ints2.length + ", mergesort\n");
+        Mergesorter.mergesortTemporizadoNS(ints2);
+        System.out.println("-----------------------------------------");
+        //System.out.println("Vetor de saida: " + java.util.Arrays.toString(ints2));
     }
 
 }

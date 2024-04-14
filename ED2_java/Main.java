@@ -1,10 +1,19 @@
-package ED2_java;
+/*
+ * Código fonte java do Projeto 1 de Estrutura da dados 2.
+ * Feito por Luis Eduardo S C martins, e Lucas Pereira Ribeiro
+ *
+ * ED 2 - 2024.1 T01
+ */
 
 import java.util.Random;
 
 public class Main{
     public static <T> void main(String [] args){
-        testeMergesort(1000);
+        //testeMergesort(1000);
+        //testeSelectsort(1000);
+        //testeQuicksortL(10);
+        testeHeapsort(100000000);
+        //testeDoubleHeapsort(10);
     }
 
     private static Integer[] vectorGerator(int n){
@@ -50,7 +59,7 @@ public class Main{
         System.out.println("Vetor de tamanho " + ints.length + ", mergesort modificado\n");
         Mergesorter.newMergesortTemporizadoNS(ints);
         System.out.println("-----------------------------------------");
-        
+
         //System.out.println("Vetor de saida: " + java.util.Arrays.toString(ints) + "\n mergesort");
         System.out.println("-----------------------------------------");
         System.out.println("Vetor de tamanho " + ints2.length + ", mergesort\n");
@@ -59,4 +68,47 @@ public class Main{
         //System.out.println("Vetor de saida: " + java.util.Arrays.toString(ints2));
     }
 
+    public static void testeSelectsort(int n) {
+        Integer[] ints = vectorGerator(n);
+        Integer[] ints2 = ints.clone();
+        //Integer[] ints3 = vectorGerator(n);
+
+        System.out.print("\nTeste Selectsort:");
+        //System.out.print("Vetor de entrada: " + Arrays.toString(ints));
+        System.out.println("\n--------------------\nVetor de tamanho " + ints.length);
+
+        Selectsorter.selectsortTemporizadoNS(ints);
+        //System.out.print("Vetor Ordenado: " + Arrays.toString(ints));
+        System.out.print("--------------------\n");
+
+        System.out.print("\nTeste Selectsort Modificado:\n");
+        //System.out.print("Vetor de entrada: " + Arrays.toString(ints2));
+        System.out.println("--------------------\nVetor de tamanho " + ints2.length);
+
+        Selectsorter.modifiedSelectsortTemporizadoNS(ints2);
+        //.out.print("Vetor Ordenado: " + Arrays.toString(ints2));
+
+        System.out.println("--------------------\n");
+    }
+
+    public static void testeHeapsort(int n) {
+        Integer[] ints = vectorGerator(n);
+        Integer[] ints2 = ints.clone();
+
+        System.out.print("\nTeste HeapSort:");
+        //System.out.print("Vetor original: " + Arrays.toString(ints));
+        System.out.print("\n--------------------\nVetor de tamanho " + ints.length);
+        System.out.println("\nHeapsort com temporizador (em nanossegundos):");
+        Heapsorter.heapsortTemporizadoNS(ints);
+        //System.out.println("Vetor ordenado: " + Arrays.toString(ints));
+        System.out.println("--------------------");
+
+        System.out.print("\nTeste DoubleHeapSort:");
+        //System.out.print("\nVetor original: " + Arrays.toString(ints2));
+        System.out.println("\n--------------------\nVetor de tamanho " + ints2.length);
+        System.out.println("\nDoubleHeapSort com temporizador (em nanossegundos):");
+        DoubleHeapSorter.doubleHeapsortTemporizadoNS(ints2);
+        //System.out.println("Vetor ordenado: " + Arrays.toString(ints2));
+        System.out.println("--------------------\n");
+    }
 }

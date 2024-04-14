@@ -1,8 +1,13 @@
-package ED2_java;
+/*
+ * Código fonte java do Projeto 1 de Estrutura da dados 2.
+ * Feito por Luis Eduardo S C martins, e Lucas Pereira Ribeiro
+ *
+ * ED 2 - 2024.1 T01
+ */
 
 public class Mergesorter {
     private static int passos;
-    
+
     /*
      * Função que temporiza o tempo da função normal do mergesort em nanosegundos,
      * tambem mostra a quantidade de passos executados
@@ -105,7 +110,7 @@ public class Mergesorter {
     }
 
     /*
-     * Função de recursão do mergesort modificado, onde é feito uma verificação se 
+     * Função de recursão do mergesort modificado, onde é feito uma verificação se
      * o subvetor é maior que 15, se sim segue fazendo a recursão, se não ele chama a função
      * insertsort para ordenar aquele subvetor, tambem é feito a verificação se o ultimo
      * elemento do subvetor esquerdo é menor que o primeiro elemento do subvetor direito
@@ -115,13 +120,13 @@ public class Mergesorter {
         int meio;
         if(inicio < fim){
             meio = (inicio + fim)/2;
-            
+
             if((meio-inicio)+1 > 15){
                 newMergeMain(vetor, inicio, meio);
             }else{
                 insertsortMerge(vetor, inicio, meio);
             }
-            
+
             if((fim-meio) > 15){
                 newMergeMain(vetor, meio+1, fim);
             }else{

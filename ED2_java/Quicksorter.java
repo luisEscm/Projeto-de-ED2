@@ -1,4 +1,9 @@
-package ED2_java;
+/*
+ * Código fonte java do Projeto 1 de Estrutura da dados 2.
+ * Feito por Luis Eduardo S C martins, e Lucas Pereira Ribeiro
+ *
+ * ED 2 - 2024.1 T01
+ */
 
 public class Quicksorter {
     private static int passos;
@@ -6,7 +11,7 @@ public class Quicksorter {
     /*
      * Função que cronometra o tempo de execução do quicksort modificado em nanosegundos
      * e faz um print na tela mostrando o tempo inicial, o final e o tempo total
-     * de execução, além de também mostrar a quantidade de passos executados. 
+     * de execução, além de também mostrar a quantidade de passos executados.
      */
     public static <T extends Comparable<? super T>> void quicksortTemporizadoNS(T[] v, int inicio, int fim, int l){
         long timeInicio = System.nanoTime();
@@ -20,7 +25,7 @@ public class Quicksorter {
     /*
      * Função que cronometra o tempo de execução do quicksort modificado em milisegundos
      * e faz um print na tela mostrando o tempo inicial, o final e o tempo total
-     * de execução, além de também mostrar a quantidade de passos executados. 
+     * de execução, além de também mostrar a quantidade de passos executados.
      */
     public static <T extends Comparable<? super T>> void quicksortTemporizadoMS(T[] v, int inicio, int fim, int l){
         long timeInicio = System.currentTimeMillis();
@@ -32,9 +37,9 @@ public class Quicksorter {
     }
 
     /*
-    * método do quicksort usando Generics, modificado para usar o bubblesort
-    * nos subvetores que tenham um tamanho menor igual a L
-    */
+     * método do quicksort usando Generics, modificado para usar o bubblesort
+     * nos subvetores que tenham um tamanho menor igual a L
+     */
     public static <T extends Comparable<? super T>> void quicksort(T[] v, int inicio, int fim, int l){
         if(inicio < fim){
             int posicaoPivo = particiona(v, inicio, fim);
@@ -54,7 +59,7 @@ public class Quicksorter {
 
     /*
      * Função que particiona um vetor escolhendo um pivô e colocando todos os elementos menores
-     * ou iguais ao pivô na esquerda dele e os elementos maiores que ele a direita dele, nessa 
+     * ou iguais ao pivô na esquerda dele e os elementos maiores que ele a direita dele, nessa
      * função de partição o pivô é tido como o elemento na posição de fim-1, por causa da função
      * de mediaDeTres.
      */
@@ -131,7 +136,7 @@ public class Quicksorter {
      * função bubblesort feita para executar em um subvetor que começa em inicio e termina em fim.
      */
     public static <T extends Comparable<? super T>> void bubblesortQuick(T[] vetor, int inicio, int fim){
-        int n = fim-inicio+1; 
+        int n = fim-inicio+1;
         T temp;
         for(int i=0; i < n; i++){
             for(int j=inicio+1; j <= (fim-i); j++){
